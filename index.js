@@ -24,3 +24,5 @@ app.set("view engine", "ejs");
 const server = app.listen(8000, () => {
   console.log("Server listening on port 8000");
 });
+
+app.get("/", (req, res) => res.status(200).json("success"));
