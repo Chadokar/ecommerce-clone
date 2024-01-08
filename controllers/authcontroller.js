@@ -60,3 +60,29 @@ module.exports.update_user = async (req, res) => {
     res.status(401).json(err);
   }
 };
+
+module.exports.remove_cart = async (req, res) => {
+  const { cart } = req.body;
+
+  try {
+    const user = await User.findByIdAndUpdate(req.user._id, {
+      card: cart,
+    });
+    res.status(201).json({ user });
+  } catch (err) {
+    res.status(401).json(err);
+  }
+};
+
+module.exports.user_update = async (req, res) => {
+  const { data } = req.body;
+
+  try {
+    const user = await User.findByIdAndUpdate(req.user._id, {
+      ...data,
+    });
+    res.status(201).json({ user });
+  } catch (err) {
+    res.status(401).json(err);
+  }
+};

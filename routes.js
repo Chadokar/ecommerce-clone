@@ -11,6 +11,8 @@ router.post("/signup", authController.signup_post);
 router.post("/signin", authController.login_post);
 router.get("/user", authenticate, authController.get_user);
 router.put("/add-cart", authenticate, authController.update_user);
+router.put("/remove-cart", authenticate, authController.remove_cart);
+router.put("/user", authenticate, authController.user_update);
 
 //shop handle
 router.post("/createshop", authenticate, shopController.createshop);

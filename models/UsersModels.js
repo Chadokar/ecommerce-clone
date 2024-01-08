@@ -27,6 +27,8 @@ const userSchema = new mongoose.Schema({
     },
   ],
   shopId: { type: mongoose.Schema.Types.ObjectId, ref: "shop" },
+  contact: { type: String },
+  gender: { type: String },
 });
 
 // fire a function before doc saved to db
