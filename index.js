@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const routes = require("./routes");
 
 const app = express();
 
@@ -19,10 +20,11 @@ app.use(cors());
 
 app.use(express.json());
 
+app.get("/", (req, res) => res.status(200).json("success"));
+app.use(routes);
+
 app.set("view engine", "ejs");
 
-const server = app.listen(8000, () => {
+app.listen(8000, () => {
   console.log("Server listening on port 8000");
 });
-
-app.get("/", (req, res) => res.status(200).json("success"));
